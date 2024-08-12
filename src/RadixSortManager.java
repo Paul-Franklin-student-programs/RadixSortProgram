@@ -11,7 +11,7 @@ public class RadixSortManager {
      * @param mainArray the array to print
      * @param length the length of the array
      */
-    static void arrayPrint(Integer[] mainArray, int length) {
+    public static void arrayPrint(Integer[] mainArray, int length) {
         if (mainArray == null) {
             System.out.println("mainArray cannot be null.");
             return;
@@ -29,7 +29,7 @@ public class RadixSortManager {
      * @param length the length of the array
      * @param exp the exponent representing the digit to sort by
      */
-    static void digitSort(Integer[] mainArray, int length, int exp) {
+    private static void digitSort(Integer[] mainArray, int length, int exp) {
         if (mainArray == null) {
             System.out.println("mainArray cannot be null.");
             return;
@@ -78,7 +78,7 @@ public class RadixSortManager {
      * @param length the length of the array
      * @return the maximum value in the array
      */
-    static int arrayMax(Integer[] array, int length) {
+    private static int arrayMax(Integer[] array, int length) {
         if (array == null || length == 0) {
             return 0;
         }

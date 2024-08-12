@@ -2,10 +2,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * This class tests the functionality of program Radix Sort's sortation implementation
+ * This class tests the functionality of program Radix Sort's sortation implementation.
  * It initializes a main array, fills it with user-inputted values, sorts
  * both negative and non-negative Integers when applicable, and finally
- * prints the sorted array juxtaposed with original array
+ * prints the sorted array juxtaposed with a printing of original array
  */
 public class RadixSortTester {
     /**
@@ -17,11 +17,11 @@ public class RadixSortTester {
         //initializes empty list of type Integer
         Integer[] mainArray = new Integer[10];
 
-        //prompts user for Integer inputs to populate the
-        //mainArray before sortation
+        //prompts user for String inputs to populate the
+        //"mainArray" before sortation
         System.out.println("Enter an array of 10 Integers:");
 
-        //using try-with-resources exception handling, inputs 10 int user inputs
+        //using try-with-resources exception handling, inputs 10 String user inputs
         try (Scanner scnr = new Scanner(System.in)) {
             for (int i = 0; i < 10; i++) {
                 System.out.println("Enter value #" + (i + 1) + ":");
@@ -36,19 +36,19 @@ public class RadixSortTester {
                 mainArray[i] = newElement;
             }
 
-            //makes duplicate of mainArray for the purposes of printing
-            //the unsorted mainArray at end of main method
+            //makes duplicate of "mainArray" for the purposes of printing
+            //the unsorted "mainArray" at end of main method
             Integer[] mainArrayCopy = Arrays.copyOf(mainArray, mainArray.length);  // Used Arrays.copyOf to create a copy of the array
 
             //determines the sorted "finalArray" by calling sortNegativesAndPositives
-            //method with mainArray and mainArray's length as arguments
+            //method with "mainArray" and "mainArray" length as arguments
             Integer[] finalArray = RadixSortNegativesManager.sortNegativesAndPositives(mainArray, mainArray.length);
 
-            //prints unsorted mainArray by printing previously-made mainArrayCopy
+            //prints unsorted "mainArray" by printing previously-made "mainArrayCopy"
             System.out.print("Unsorted array: ");
             RadixSortManager.arrayPrint(mainArrayCopy, mainArrayCopy.length);
 
-            //prints finalArray (which is the sorted mainArray) by calling
+            //prints "finalArray" (which is the sorted "mainArray") by calling
             //"arrayPrint" method in RadixSortManager
             System.out.print("Sorted array: ");
             RadixSortManager.arrayPrint(finalArray, finalArray.length);
