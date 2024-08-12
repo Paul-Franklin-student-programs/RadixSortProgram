@@ -4,6 +4,9 @@ import java.util.Arrays;
  * Manages the separation, sorting, and merging of negative and non-negative integers for radix sort.
  */
 public class RadixSortNegativesManager {
+    /**
+     * Stores all negative Integers from
+     */
     private static Integer[] negativeArray;
     public static Integer[] nonNegativeArray;
     private static int negCount = 0;
