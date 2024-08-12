@@ -1,6 +1,7 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.fail;
 
 public class RadixSortJUnitTests {
 
@@ -55,8 +56,10 @@ public class RadixSortJUnitTests {
     public void testRadixSortArrayIsNull() {
         // Test case 6: Sorting a null array
         Integer[] array = null;
-        assertDoesNotThrow(() -> {
+        try {
             RadixSortManager.radixSorter(array, 0);
-        });
+        } catch (Exception e) {
+            fail("radixSorter() threw an exception when array is null");
+        }
     }
 }
