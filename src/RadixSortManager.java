@@ -48,30 +48,30 @@ public class RadixSortManager {
             frequencyArray[(mainArray[j] / exp) % 10]++;
         }
 
-        //initializes cumulativeFrequencyArray to hold the values that show where the next
+        //initializes cumulativeArray to hold the values that show where the next
         // batch of equal elements starts in the sorted order delineated by frequencyArray.
-        int cumulativeFrequencyArray[] = new int[10];
+        int[] cumulativeArray = new int[10];
 
         //calculates prefix sum, thus altering frequencyArray by making each element
         // the sum of that element and the element immediately preceding it. Element at
-        //index 0 does not change. After loop terminates, the updated initialArray has been
-        //copied to array cumulativeFrequencyArray for subsequent computation
+        //index 0 does not change. After loop terminates, the updated frequencyArray has
+        // been copied to cumulativeArray for subsequent computation
         for (int j = 1; j < 10; j++) {
             frequencyArray[j] += frequencyArray[j - 1];
-            cumulativeFrequencyArray[j] = frequencyArray[j];
+            cumulativeArray[j] = frequencyArray[j];
         }
 
-        //create output array to represent mainArray rearranged via digits at a certain
-        //digit position in the mainArray elements; populate array with 0 at each index
+        //create outputArray to hold mainArray rearranged according to place values
         Integer[] outputArray = new Integer[length];
         Arrays.fill(outputArray, 0);
 
-
+        //fills outputArray with mainArray values sorted by place value from "exp"
         for (int j = length - 1; j >= 0; j--) {
-            outputArray[frequencyArray[(mainArray[j] / exp) % 10] - 1] = mainArray[j];
-            frequencyArray[(mainArray[j] / exp) % 10]--;
+            outputArray[cumulativeArray[(mainArray[j] / exp) % 10] - 1] = mainArray[j];
+            cumulativeArray[(mainArray[j] / exp) % 10]--;
         }
 
+        //insures outputArray is copied in mainArray
         System.arraycopy(outputArray, 0, mainArray, 0, length);
     }
 
